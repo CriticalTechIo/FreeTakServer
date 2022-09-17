@@ -13,7 +13,7 @@ WORKDIR /FreeTAKServer
 COPY . .
 COPY --chown=freetak:freetak ./FreeTAKServer /FreeTAKServer
 
-RUN pip3 install flask lxml flask_login
+RUN pip3 install flask lxml flask_login mysqlclient
 
 RUN pip3 install -e /FreeTAKServer
 

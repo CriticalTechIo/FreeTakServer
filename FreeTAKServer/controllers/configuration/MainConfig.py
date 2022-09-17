@@ -115,7 +115,7 @@ class MainConfig:
         # set to None if you don't want a message sent
         ConnectionMessage = f'Welcome to FreeTAKServer {version}. The Parrot is not dead. It’s just resting'
 
-        DataBaseType = str("SQLite")
+        DataBaseType = str(os.environ.get("FTS_DATABASE_TYPE"))
 
     else:
         content = open(yaml_path).read()
@@ -306,4 +306,4 @@ class MainConfig:
     # location to backup client packages
     clientPackages = str(Path(fr'{MainPath}/certs/ClientPackages'))
 
-    first_start = True
+    first_start = False
