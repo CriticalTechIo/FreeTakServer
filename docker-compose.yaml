@@ -36,8 +36,13 @@ services:
       - FTS_DATABASE_TYPE=MySQL
       - FTS_DB_PATH=root:password@db:3306/db
       - FTS_DP_ADDRESS= $$(curl ifconfig.me)
+      - FTS_EXCHECK_PATH=/opt/excheck
+      - FTS_EXCHECK_CHECKLIST_PATH=/opt/excheck/checklist
+      - FTS_EXCHECK_TEMPLATE_PATH=/opt/excheck/templates
+      - FTS_CERTS_PATH=/opt/excheck/certs
     volumes:
       - ftsdata:/opt/FTSData:rw
+      - ./excheck:/opt/excheck:rw
       - logvolume01:/var/log:rw
       - ${PWD}:/FreeTAKServer:rw
     depends_on:
@@ -49,3 +54,5 @@ volumes:
   ftsdata:
   logvolume01:
   my-db:
+  #ftsexcheck:
+
